@@ -35,9 +35,9 @@ let rec transport globalState: GlobalState =
             if tt1 <= tt2 then
                 transport (newGlobalState (tt1+10) tt2 ts1 fs pas aas ((B, tt1+5)::bbs))
             else
-                transport (newGlobalState tt1 (tt2+10) ts1 fs pas aas ((A, tt2+5)::bbs))
+                transport (newGlobalState tt1 (tt2+10) ts1 fs pas aas ((B, tt2+5)::bbs))
         | GLOBALSTATE(tt1, tt2, ts1, (fs, (c,ta)::pas, aas, bbs)) -> 
-                transport (newGlobalState tt1 tt2 (ts1+8) fs pas ((c, 4+max ts1 ta)::aas) bbs)
+                transport (newGlobalState tt1 tt2 (8+max ts1 ta) fs pas ((c, 4+max ts1 ta)::aas) bbs)
         | GLOBALSTATE(tt1, tt2, ts1, ([], [], aas, bbs)) ->
                 newGlobalState tt1 tt2 ts1 [] [] aas bbs
 

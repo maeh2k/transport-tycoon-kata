@@ -1,0 +1,16 @@
+{"event": "DEPART", "time": 0, "transport_id": 906811729, "kind": "TRUCK", "location": "FACTORY", "destination": "B", "cargo": [{"cargo_id": 1, "destination": "B", "origin": "Factory"}]}
+{"event": "DEPART", "time": 0, "transport_id": 1520481834, "kind": "TRUCK", "location": "FACTORY", "destination": "PORT", "cargo": [{"cargo_id": 0, "destination": "A", "origin": "Factory"}]}
+{"event": "ARRIVE", "time": 1, "transport_id": 1520481834, "kind": "TRUCK", "location": "PORT", "destination": "", "cargo": [{"cargo_id": 0, "destination": "A", "origin": "Factory"}]}
+{"event": "DEPART", "time": 1, "transport_id": 832232887, "kind": "SHIP", "location": "PORT", "destination": "A", "cargo": [{"cargo_id": 0, "destination": "A", "origin": "Factory"}]}
+{"event": "DEPART", "time": 1, "transport_id": 1520481834, "kind": "TRUCK", "location": "PORT", "destination": "FACTORY", "cargo": []}
+{"event": "ARRIVE", "time": 2, "transport_id": 1520481834, "kind": "TRUCK", "location": "FACTORY", "destination": "", "cargo": []}
+{"event": "DEPART", "time": 2, "transport_id": 1568021512, "kind": "TRUCK", "location": "FACTORY", "destination": "B", "cargo": [{"cargo_id": 2, "destination": "B", "origin": "Factory"}]}
+{"event": "ARRIVE", "time": 5, "transport_id": 832232887, "kind": "SHIP", "location": "A", "destination": "", "cargo": [{"cargo_id": 0, "destination": "A", "origin": "Factory"}]}
+{"event": "ARRIVE", "time": 5, "transport_id": 906811729, "kind": "TRUCK", "location": "B", "destination": "", "cargo": [{"cargo_id": 1, "destination": "B", "origin": "Factory"}]}
+{"event": "DEPART", "time": 5, "transport_id": 832232887, "kind": "SHIP", "location": "A", "destination": "PORT", "cargo": []}
+{"event": "DEPART", "time": 5, "transport_id": 906811729, "kind": "TRUCK", "location": "B", "destination": "FACTORY", "cargo": []}
+{"event": "ARRIVE", "time": 7, "transport_id": 1568021512, "kind": "TRUCK", "location": "B", "destination": "", "cargo": [{"cargo_id": 2, "destination": "B", "origin": "Factory"}]}
+{"event": "DEPART", "time": 7, "transport_id": 1568021512, "kind": "TRUCK", "location": "B", "destination": "FACTORY", "cargo": []}
+{"event": "ARRIVE", "time": 9, "transport_id": 832232887, "kind": "SHIP", "location": "PORT", "destination": "", "cargo": []}
+{"event": "ARRIVE", "time": 10, "transport_id": 906811729, "kind": "TRUCK", "location": "FACTORY", "destination": "", "cargo": []}
+{"event": "ARRIVE", "time": 12, "transport_id": 1568021512, "kind": "TRUCK", "location": "FACTORY", "destination": "", "cargo": []}
