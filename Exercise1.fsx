@@ -26,6 +26,8 @@ let newGlobalState truck1ReturnToFactoryTime truck2ReturnToFactoryTime shipRetur
 
 let rec transport globalState: GlobalState = 
     match globalState with
+        | GLOBALSTATE(tt1, tt2, ts1, (fs, (c,ta)::pas, aas, bbs)) -> 
+            transport (newGlobalState tt1 tt2 (8+max ts1 ta) fs pas ((c, 4+max ts1 ta)::aas) bbs)
         | GLOBALSTATE(tt1, tt2, ts1, (A::fs, pas, aas, bbs)) -> 
             if tt1 <= tt2 then
                 transport (newGlobalState (tt1+2) tt2 ts1 fs ((A, tt1+1)::pas) aas bbs)
@@ -36,8 +38,6 @@ let rec transport globalState: GlobalState =
                 transport (newGlobalState (tt1+10) tt2 ts1 fs pas aas ((B, tt1+5)::bbs))
             else
                 transport (newGlobalState tt1 (tt2+10) ts1 fs pas aas ((B, tt2+5)::bbs))
-        | GLOBALSTATE(tt1, tt2, ts1, (fs, (c,ta)::pas, aas, bbs)) -> 
-                transport (newGlobalState tt1 tt2 (8+max ts1 ta) fs pas ((c, 4+max ts1 ta)::aas) bbs)
         | GLOBALSTATE(tt1, tt2, ts1, ([], [], aas, bbs)) ->
                 newGlobalState tt1 tt2 ts1 [] [] aas bbs
 
