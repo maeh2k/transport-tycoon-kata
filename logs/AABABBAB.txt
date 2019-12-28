@@ -1,48 +1,72 @@
-{"event": "DEPART", "time": 0, "transport_id": 1409218637, "kind": "TRUCK", "location": "FACTORY", "destination": "PORT", "cargo": [{"cargo_id": 1, "destination": "A", "origin": "Factory"}]}
-{"event": "DEPART", "time": 0, "transport_id": 627417276, "kind": "TRUCK", "location": "FACTORY", "destination": "PORT", "cargo": [{"cargo_id": 0, "destination": "A", "origin": "Factory"}]}
-{"event": "ARRIVE", "time": 1, "transport_id": 1409218637, "kind": "TRUCK", "location": "PORT", "destination": "", "cargo": [{"cargo_id": 1, "destination": "A", "origin": "Factory"}]}
-{"event": "ARRIVE", "time": 1, "transport_id": 627417276, "kind": "TRUCK", "location": "PORT", "destination": "", "cargo": [{"cargo_id": 0, "destination": "A", "origin": "Factory"}]}
-{"event": "DEPART", "time": 1, "transport_id": 1409218637, "kind": "TRUCK", "location": "PORT", "destination": "FACTORY", "cargo": []}
-{"event": "DEPART", "time": 1, "transport_id": 1466932183, "kind": "SHIP", "location": "PORT", "destination": "A", "cargo": [{"cargo_id": 0, "destination": "A", "origin": "Factory"}]}
-{"event": "DEPART", "time": 1, "transport_id": 627417276, "kind": "TRUCK", "location": "PORT", "destination": "FACTORY", "cargo": []}
-{"event": "ARRIVE", "time": 2, "transport_id": 1409218637, "kind": "TRUCK", "location": "FACTORY", "destination": "", "cargo": []}
-{"event": "ARRIVE", "time": 2, "transport_id": 627417276, "kind": "TRUCK", "location": "FACTORY", "destination": "", "cargo": []}
-{"event": "DEPART", "time": 2, "transport_id": 547400272, "kind": "TRUCK", "location": "FACTORY", "destination": "PORT", "cargo": [{"cargo_id": 3, "destination": "A", "origin": "Factory"}]}
-{"event": "DEPART", "time": 2, "transport_id": 1485945498, "kind": "TRUCK", "location": "FACTORY", "destination": "B", "cargo": [{"cargo_id": 2, "destination": "B", "origin": "Factory"}]}
-{"event": "ARRIVE", "time": 3, "transport_id": 547400272, "kind": "TRUCK", "location": "PORT", "destination": "", "cargo": [{"cargo_id": 3, "destination": "A", "origin": "Factory"}]}
-{"event": "DEPART", "time": 3, "transport_id": 547400272, "kind": "TRUCK", "location": "PORT", "destination": "FACTORY", "cargo": []}
-{"event": "ARRIVE", "time": 4, "transport_id": 547400272, "kind": "TRUCK", "location": "FACTORY", "destination": "", "cargo": []}
-{"event": "DEPART", "time": 4, "transport_id": 856128088, "kind": "TRUCK", "location": "FACTORY", "destination": "B", "cargo": [{"cargo_id": 4, "destination": "B", "origin": "Factory"}]}
-{"event": "ARRIVE", "time": 5, "transport_id": 1466932183, "kind": "SHIP", "location": "A", "destination": "", "cargo": [{"cargo_id": 0, "destination": "A", "origin": "Factory"}]}
-{"event": "DEPART", "time": 5, "transport_id": 1466932183, "kind": "SHIP", "location": "A", "destination": "PORT", "cargo": []}
-{"event": "ARRIVE", "time": 7, "transport_id": 1485945498, "kind": "TRUCK", "location": "B", "destination": "", "cargo": [{"cargo_id": 2, "destination": "B", "origin": "Factory"}]}
-{"event": "DEPART", "time": 7, "transport_id": 1485945498, "kind": "TRUCK", "location": "B", "destination": "FACTORY", "cargo": []}
-{"event": "ARRIVE", "time": 9, "transport_id": 856128088, "kind": "TRUCK", "location": "B", "destination": "", "cargo": [{"cargo_id": 4, "destination": "B", "origin": "Factory"}]}
-{"event": "ARRIVE", "time": 9, "transport_id": 1466932183, "kind": "SHIP", "location": "PORT", "destination": "", "cargo": []}
-{"event": "DEPART", "time": 9, "transport_id": 856128088, "kind": "TRUCK", "location": "B", "destination": "FACTORY", "cargo": []}
-{"event": "DEPART", "time": 9, "transport_id": 355016114, "kind": "SHIP", "location": "PORT", "destination": "A", "cargo": [{"cargo_id": 1, "destination": "A", "origin": "Factory"}]}
-{"event": "ARRIVE", "time": 12, "transport_id": 1485945498, "kind": "TRUCK", "location": "FACTORY", "destination": "", "cargo": []}
-{"event": "DEPART", "time": 12, "transport_id": 301615962, "kind": "TRUCK", "location": "FACTORY", "destination": "B", "cargo": [{"cargo_id": 5, "destination": "B", "origin": "Factory"}]}
-{"event": "ARRIVE", "time": 13, "transport_id": 355016114, "kind": "SHIP", "location": "A", "destination": "", "cargo": [{"cargo_id": 1, "destination": "A", "origin": "Factory"}]}
-{"event": "DEPART", "time": 13, "transport_id": 355016114, "kind": "SHIP", "location": "A", "destination": "PORT", "cargo": []}
-{"event": "ARRIVE", "time": 14, "transport_id": 856128088, "kind": "TRUCK", "location": "FACTORY", "destination": "", "cargo": []}
-{"event": "DEPART", "time": 14, "transport_id": 286547886, "kind": "TRUCK", "location": "FACTORY", "destination": "PORT", "cargo": [{"cargo_id": 6, "destination": "A", "origin": "Factory"}]}
-{"event": "ARRIVE", "time": 15, "transport_id": 286547886, "kind": "TRUCK", "location": "PORT", "destination": "", "cargo": [{"cargo_id": 6, "destination": "A", "origin": "Factory"}]}
-{"event": "DEPART", "time": 15, "transport_id": 286547886, "kind": "TRUCK", "location": "PORT", "destination": "FACTORY", "cargo": []}
-{"event": "ARRIVE", "time": 16, "transport_id": 286547886, "kind": "TRUCK", "location": "FACTORY", "destination": "", "cargo": []}
-{"event": "DEPART", "time": 16, "transport_id": 959941301, "kind": "TRUCK", "location": "FACTORY", "destination": "B", "cargo": [{"cargo_id": 7, "destination": "B", "origin": "Factory"}]}
-{"event": "ARRIVE", "time": 17, "transport_id": 301615962, "kind": "TRUCK", "location": "B", "destination": "", "cargo": [{"cargo_id": 5, "destination": "B", "origin": "Factory"}]}
-{"event": "ARRIVE", "time": 17, "transport_id": 355016114, "kind": "SHIP", "location": "PORT", "destination": "", "cargo": []}
-{"event": "DEPART", "time": 17, "transport_id": 301615962, "kind": "TRUCK", "location": "B", "destination": "FACTORY", "cargo": []}
-{"event": "DEPART", "time": 17, "transport_id": 174907794, "kind": "SHIP", "location": "PORT", "destination": "A", "cargo": [{"cargo_id": 3, "destination": "A", "origin": "Factory"}]}
-{"event": "ARRIVE", "time": 21, "transport_id": 959941301, "kind": "TRUCK", "location": "B", "destination": "", "cargo": [{"cargo_id": 7, "destination": "B", "origin": "Factory"}]}
-{"event": "ARRIVE", "time": 21, "transport_id": 174907794, "kind": "SHIP", "location": "A", "destination": "", "cargo": [{"cargo_id": 3, "destination": "A", "origin": "Factory"}]}
-{"event": "DEPART", "time": 21, "transport_id": 959941301, "kind": "TRUCK", "location": "B", "destination": "FACTORY", "cargo": []}
-{"event": "DEPART", "time": 21, "transport_id": 174907794, "kind": "SHIP", "location": "A", "destination": "PORT", "cargo": []}
-{"event": "ARRIVE", "time": 22, "transport_id": 301615962, "kind": "TRUCK", "location": "FACTORY", "destination": "", "cargo": []}
-{"event": "ARRIVE", "time": 25, "transport_id": 174907794, "kind": "SHIP", "location": "PORT", "destination": "", "cargo": []}
-{"event": "DEPART", "time": 25, "transport_id": 366366775, "kind": "SHIP", "location": "PORT", "destination": "A", "cargo": [{"cargo_id": 6, "destination": "A", "origin": "Factory"}]}
-{"event": "ARRIVE", "time": 26, "transport_id": 959941301, "kind": "TRUCK", "location": "FACTORY", "destination": "", "cargo": []}
-{"event": "ARRIVE", "time": 29, "transport_id": 366366775, "kind": "SHIP", "location": "A", "destination": "", "cargo": [{"cargo_id": 6, "destination": "A", "origin": "Factory"}]}
-{"event": "DEPART", "time": 29, "transport_id": 366366775, "kind": "SHIP", "location": "A", "destination": "PORT", "cargo": []}
-{"event": "ARRIVE", "time": 33, "transport_id": 366366775, "kind": "SHIP", "location": "PORT", "destination": "", "cargo": []}
+{"event": "LOAD", "time": 0, "transport_id": 124005323, "kind": "TRUCK", "location": "FACTORY", "destination": "PORT", "cargo": [{"cargo_id": 1, "destination": "A", "origin": "Factory"}]}
+{"event": "LOAD", "time": 0, "transport_id": 385193461, "kind": "TRUCK", "location": "FACTORY", "destination": "PORT", "cargo": [{"cargo_id": 0, "destination": "A", "origin": "Factory"}]}
+{"event": "DEPART", "time": 0, "transport_id": 124005323, "kind": "TRUCK", "location": "FACTORY", "destination": "PORT", "cargo": [{"cargo_id": 1, "destination": "A", "origin": "Factory"}]}
+{"event": "DEPART", "time": 0, "transport_id": 385193461, "kind": "TRUCK", "location": "FACTORY", "destination": "PORT", "cargo": [{"cargo_id": 0, "destination": "A", "origin": "Factory"}]}
+{"event": "ARRIVE", "time": 1, "transport_id": 124005323, "kind": "TRUCK", "location": "PORT", "destination": "", "cargo": [{"cargo_id": 1, "destination": "A", "origin": "Factory"}]}
+{"event": "ARRIVE", "time": 1, "transport_id": 385193461, "kind": "TRUCK", "location": "PORT", "destination": "", "cargo": [{"cargo_id": 0, "destination": "A", "origin": "Factory"}]}
+{"event": "UNLOAD", "time": 1, "transport_id": 124005323, "kind": "TRUCK", "location": "PORT", "destination": "", "cargo": [{"cargo_id": 1, "destination": "A", "origin": "Factory"}]}
+{"event": "UNLOAD", "time": 1, "transport_id": 385193461, "kind": "TRUCK", "location": "PORT", "destination": "", "cargo": [{"cargo_id": 0, "destination": "A", "origin": "Factory"}]}
+{"event": "LOAD", "time": 1, "transport_id": 144015834, "kind": "SHIP", "location": "PORT", "destination": "A", "cargo": [{"cargo_id": 0, "destination": "A", "origin": "Factory"}]}
+{"event": "DEPART", "time": 1, "transport_id": 124005323, "kind": "TRUCK", "location": "PORT", "destination": "FACTORY", "cargo": []}
+{"event": "DEPART", "time": 1, "transport_id": 144015834, "kind": "SHIP", "location": "PORT", "destination": "A", "cargo": [{"cargo_id": 0, "destination": "A", "origin": "Factory"}]}
+{"event": "DEPART", "time": 1, "transport_id": 385193461, "kind": "TRUCK", "location": "PORT", "destination": "FACTORY", "cargo": []}
+{"event": "ARRIVE", "time": 2, "transport_id": 124005323, "kind": "TRUCK", "location": "FACTORY", "destination": "", "cargo": []}
+{"event": "ARRIVE", "time": 2, "transport_id": 385193461, "kind": "TRUCK", "location": "FACTORY", "destination": "", "cargo": []}
+{"event": "LOAD", "time": 2, "transport_id": 1804202984, "kind": "TRUCK", "location": "FACTORY", "destination": "PORT", "cargo": [{"cargo_id": 3, "destination": "A", "origin": "Factory"}]}
+{"event": "LOAD", "time": 2, "transport_id": 1085222837, "kind": "TRUCK", "location": "FACTORY", "destination": "B", "cargo": [{"cargo_id": 2, "destination": "B", "origin": "Factory"}]}
+{"event": "DEPART", "time": 2, "transport_id": 1804202984, "kind": "TRUCK", "location": "FACTORY", "destination": "PORT", "cargo": [{"cargo_id": 3, "destination": "A", "origin": "Factory"}]}
+{"event": "DEPART", "time": 2, "transport_id": 1085222837, "kind": "TRUCK", "location": "FACTORY", "destination": "B", "cargo": [{"cargo_id": 2, "destination": "B", "origin": "Factory"}]}
+{"event": "ARRIVE", "time": 3, "transport_id": 1804202984, "kind": "TRUCK", "location": "PORT", "destination": "", "cargo": [{"cargo_id": 3, "destination": "A", "origin": "Factory"}]}
+{"event": "UNLOAD", "time": 3, "transport_id": 1804202984, "kind": "TRUCK", "location": "PORT", "destination": "", "cargo": [{"cargo_id": 3, "destination": "A", "origin": "Factory"}]}
+{"event": "DEPART", "time": 3, "transport_id": 1804202984, "kind": "TRUCK", "location": "PORT", "destination": "FACTORY", "cargo": []}
+{"event": "ARRIVE", "time": 4, "transport_id": 1804202984, "kind": "TRUCK", "location": "FACTORY", "destination": "", "cargo": []}
+{"event": "LOAD", "time": 4, "transport_id": 809105521, "kind": "TRUCK", "location": "FACTORY", "destination": "B", "cargo": [{"cargo_id": 4, "destination": "B", "origin": "Factory"}]}
+{"event": "DEPART", "time": 4, "transport_id": 809105521, "kind": "TRUCK", "location": "FACTORY", "destination": "B", "cargo": [{"cargo_id": 4, "destination": "B", "origin": "Factory"}]}
+{"event": "ARRIVE", "time": 5, "transport_id": 144015834, "kind": "SHIP", "location": "A", "destination": "", "cargo": [{"cargo_id": 0, "destination": "A", "origin": "Factory"}]}
+{"event": "UNLOAD", "time": 5, "transport_id": 144015834, "kind": "SHIP", "location": "A", "destination": "", "cargo": [{"cargo_id": 0, "destination": "A", "origin": "Factory"}]}
+{"event": "DEPART", "time": 5, "transport_id": 144015834, "kind": "SHIP", "location": "A", "destination": "PORT", "cargo": []}
+{"event": "ARRIVE", "time": 7, "transport_id": 1085222837, "kind": "TRUCK", "location": "B", "destination": "", "cargo": [{"cargo_id": 2, "destination": "B", "origin": "Factory"}]}
+{"event": "UNLOAD", "time": 7, "transport_id": 1085222837, "kind": "TRUCK", "location": "B", "destination": "", "cargo": [{"cargo_id": 2, "destination": "B", "origin": "Factory"}]}
+{"event": "DEPART", "time": 7, "transport_id": 1085222837, "kind": "TRUCK", "location": "B", "destination": "FACTORY", "cargo": []}
+{"event": "ARRIVE", "time": 9, "transport_id": 809105521, "kind": "TRUCK", "location": "B", "destination": "", "cargo": [{"cargo_id": 4, "destination": "B", "origin": "Factory"}]}
+{"event": "ARRIVE", "time": 9, "transport_id": 144015834, "kind": "SHIP", "location": "PORT", "destination": "", "cargo": []}
+{"event": "UNLOAD", "time": 9, "transport_id": 809105521, "kind": "TRUCK", "location": "B", "destination": "", "cargo": [{"cargo_id": 4, "destination": "B", "origin": "Factory"}]}
+{"event": "LOAD", "time": 9, "transport_id": 2090212471, "kind": "SHIP", "location": "PORT", "destination": "A", "cargo": [{"cargo_id": 1, "destination": "A", "origin": "Factory"}]}
+{"event": "DEPART", "time": 9, "transport_id": 809105521, "kind": "TRUCK", "location": "B", "destination": "FACTORY", "cargo": []}
+{"event": "DEPART", "time": 9, "transport_id": 2090212471, "kind": "SHIP", "location": "PORT", "destination": "A", "cargo": [{"cargo_id": 1, "destination": "A", "origin": "Factory"}]}
+{"event": "ARRIVE", "time": 12, "transport_id": 1085222837, "kind": "TRUCK", "location": "FACTORY", "destination": "", "cargo": []}
+{"event": "LOAD", "time": 12, "transport_id": 126060634, "kind": "TRUCK", "location": "FACTORY", "destination": "B", "cargo": [{"cargo_id": 5, "destination": "B", "origin": "Factory"}]}
+{"event": "DEPART", "time": 12, "transport_id": 126060634, "kind": "TRUCK", "location": "FACTORY", "destination": "B", "cargo": [{"cargo_id": 5, "destination": "B", "origin": "Factory"}]}
+{"event": "ARRIVE", "time": 13, "transport_id": 2090212471, "kind": "SHIP", "location": "A", "destination": "", "cargo": [{"cargo_id": 1, "destination": "A", "origin": "Factory"}]}
+{"event": "UNLOAD", "time": 13, "transport_id": 2090212471, "kind": "SHIP", "location": "A", "destination": "", "cargo": [{"cargo_id": 1, "destination": "A", "origin": "Factory"}]}
+{"event": "DEPART", "time": 13, "transport_id": 2090212471, "kind": "SHIP", "location": "A", "destination": "PORT", "cargo": []}
+{"event": "ARRIVE", "time": 14, "transport_id": 809105521, "kind": "TRUCK", "location": "FACTORY", "destination": "", "cargo": []}
+{"event": "LOAD", "time": 14, "transport_id": 1583856281, "kind": "TRUCK", "location": "FACTORY", "destination": "PORT", "cargo": [{"cargo_id": 6, "destination": "A", "origin": "Factory"}]}
+{"event": "DEPART", "time": 14, "transport_id": 1583856281, "kind": "TRUCK", "location": "FACTORY", "destination": "PORT", "cargo": [{"cargo_id": 6, "destination": "A", "origin": "Factory"}]}
+{"event": "ARRIVE", "time": 15, "transport_id": 1583856281, "kind": "TRUCK", "location": "PORT", "destination": "", "cargo": [{"cargo_id": 6, "destination": "A", "origin": "Factory"}]}
+{"event": "UNLOAD", "time": 15, "transport_id": 1583856281, "kind": "TRUCK", "location": "PORT", "destination": "", "cargo": [{"cargo_id": 6, "destination": "A", "origin": "Factory"}]}
+{"event": "DEPART", "time": 15, "transport_id": 1583856281, "kind": "TRUCK", "location": "PORT", "destination": "FACTORY", "cargo": []}
+{"event": "ARRIVE", "time": 16, "transport_id": 1583856281, "kind": "TRUCK", "location": "FACTORY", "destination": "", "cargo": []}
+{"event": "LOAD", "time": 16, "transport_id": 304196188, "kind": "TRUCK", "location": "FACTORY", "destination": "B", "cargo": [{"cargo_id": 7, "destination": "B", "origin": "Factory"}]}
+{"event": "DEPART", "time": 16, "transport_id": 304196188, "kind": "TRUCK", "location": "FACTORY", "destination": "B", "cargo": [{"cargo_id": 7, "destination": "B", "origin": "Factory"}]}
+{"event": "ARRIVE", "time": 17, "transport_id": 126060634, "kind": "TRUCK", "location": "B", "destination": "", "cargo": [{"cargo_id": 5, "destination": "B", "origin": "Factory"}]}
+{"event": "ARRIVE", "time": 17, "transport_id": 2090212471, "kind": "SHIP", "location": "PORT", "destination": "", "cargo": []}
+{"event": "UNLOAD", "time": 17, "transport_id": 126060634, "kind": "TRUCK", "location": "B", "destination": "", "cargo": [{"cargo_id": 5, "destination": "B", "origin": "Factory"}]}
+{"event": "LOAD", "time": 17, "transport_id": 968530242, "kind": "SHIP", "location": "PORT", "destination": "A", "cargo": [{"cargo_id": 3, "destination": "A", "origin": "Factory"}]}
+{"event": "DEPART", "time": 17, "transport_id": 126060634, "kind": "TRUCK", "location": "B", "destination": "FACTORY", "cargo": []}
+{"event": "DEPART", "time": 17, "transport_id": 968530242, "kind": "SHIP", "location": "PORT", "destination": "A", "cargo": [{"cargo_id": 3, "destination": "A", "origin": "Factory"}]}
+{"event": "ARRIVE", "time": 21, "transport_id": 304196188, "kind": "TRUCK", "location": "B", "destination": "", "cargo": [{"cargo_id": 7, "destination": "B", "origin": "Factory"}]}
+{"event": "ARRIVE", "time": 21, "transport_id": 968530242, "kind": "SHIP", "location": "A", "destination": "", "cargo": [{"cargo_id": 3, "destination": "A", "origin": "Factory"}]}
+{"event": "UNLOAD", "time": 21, "transport_id": 304196188, "kind": "TRUCK", "location": "B", "destination": "", "cargo": [{"cargo_id": 7, "destination": "B", "origin": "Factory"}]}
+{"event": "UNLOAD", "time": 21, "transport_id": 968530242, "kind": "SHIP", "location": "A", "destination": "", "cargo": [{"cargo_id": 3, "destination": "A", "origin": "Factory"}]}
+{"event": "DEPART", "time": 21, "transport_id": 304196188, "kind": "TRUCK", "location": "B", "destination": "FACTORY", "cargo": []}
+{"event": "DEPART", "time": 21, "transport_id": 968530242, "kind": "SHIP", "location": "A", "destination": "PORT", "cargo": []}
+{"event": "ARRIVE", "time": 22, "transport_id": 126060634, "kind": "TRUCK", "location": "FACTORY", "destination": "", "cargo": []}
+{"event": "ARRIVE", "time": 25, "transport_id": 968530242, "kind": "SHIP", "location": "PORT", "destination": "", "cargo": []}
+{"event": "LOAD", "time": 25, "transport_id": 1350304088, "kind": "SHIP", "location": "PORT", "destination": "A", "cargo": [{"cargo_id": 6, "destination": "A", "origin": "Factory"}]}
+{"event": "DEPART", "time": 25, "transport_id": 1350304088, "kind": "SHIP", "location": "PORT", "destination": "A", "cargo": [{"cargo_id": 6, "destination": "A", "origin": "Factory"}]}
+{"event": "ARRIVE", "time": 26, "transport_id": 304196188, "kind": "TRUCK", "location": "FACTORY", "destination": "", "cargo": []}
+{"event": "ARRIVE", "time": 29, "transport_id": 1350304088, "kind": "SHIP", "location": "A", "destination": "", "cargo": [{"cargo_id": 6, "destination": "A", "origin": "Factory"}]}
+{"event": "UNLOAD", "time": 29, "transport_id": 1350304088, "kind": "SHIP", "location": "A", "destination": "", "cargo": [{"cargo_id": 6, "destination": "A", "origin": "Factory"}]}
+{"event": "DEPART", "time": 29, "transport_id": 1350304088, "kind": "SHIP", "location": "A", "destination": "PORT", "cargo": []}
+{"event": "ARRIVE", "time": 33, "transport_id": 1350304088, "kind": "SHIP", "location": "PORT", "destination": "", "cargo": []}

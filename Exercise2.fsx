@@ -69,41 +69,51 @@ let rec transport globalState: GlobalState =
     match globalState with
         | GLOBALSTATE(tt1, tt2, ts1, (fs, (a,ta)::pas, aas, bbs), events) -> 
             let transportId = System.Random().Next()
+            let loadEvent = createEventWithCargo "LOAD" (max ts1 ta) transportId "SHIP" "PORT" "A" a
             let departEvent = createEventWithCargo "DEPART" (max ts1 ta) transportId "SHIP" "PORT" "A" a
             let arriveEvent = createEventWithCargo "ARRIVE" (4+max ts1 ta) transportId "SHIP" "A" "" a
+            let unloadEvent = createEventWithCargo "UNLOAD" (4+max ts1 ta) transportId "SHIP" "A" "" a
             let returnDepartEvent = createEventWithoutCargo "DEPART" (4+max ts1 ta) transportId "SHIP" "A" "PORT"
             let returnArriveEvent = createEventWithoutCargo "ARRIVE" (8+max ts1 ta) transportId "SHIP" "PORT" ""
-            transport (newGlobalState tt1 tt2 (8+max ts1 ta) fs pas ((a, 4+max ts1 ta)::aas) bbs (returnArriveEvent::returnDepartEvent::arriveEvent::departEvent::events))
+            transport (newGlobalState tt1 tt2 (8+max ts1 ta) fs pas ((a, 4+max ts1 ta)::aas) bbs (returnArriveEvent::returnDepartEvent::unloadEvent::arriveEvent::departEvent::loadEvent::events))
         | GLOBALSTATE(tt1, tt2, ts1, (({ destination = A } as a)::fs, pas, aas, bbs), events) -> 
             if tt1 <= tt2 then
                 let transportId = System.Random().Next()
+                let loadEvent = createEventWithCargo "LOAD" tt1 transportId "TRUCK" "FACTORY" "PORT" a
                 let departEvent = createEventWithCargo "DEPART" tt1 transportId "TRUCK" "FACTORY" "PORT" a
                 let arriveEvent = createEventWithCargo "ARRIVE" (tt1+1) transportId "TRUCK" "PORT" "" a
+                let unloadEvent = createEventWithCargo "UNLOAD" (tt1+1) transportId "TRUCK" "PORT" "" a
                 let returnDepartEvent = createEventWithoutCargo "DEPART" (tt1+1) transportId "TRUCK" "PORT" "FACTORY"
                 let returnArriveEvent = createEventWithoutCargo "ARRIVE" (tt1+2) transportId "TRUCK" "FACTORY" ""
-                transport (newGlobalState (tt1+2) tt2 ts1 fs ((a, tt1+1)::pas) aas bbs (returnArriveEvent::returnDepartEvent::arriveEvent::departEvent::events))
+                transport (newGlobalState (tt1+2) tt2 ts1 fs ((a, tt1+1)::pas) aas bbs (returnArriveEvent::returnDepartEvent::unloadEvent::arriveEvent::departEvent::loadEvent::events))
             else
                 let transportId = System.Random().Next()
+                let loadEvent = createEventWithCargo "LOAD" tt2 transportId "TRUCK" "FACTORY" "PORT" a
                 let departEvent = createEventWithCargo "DEPART" tt2 transportId "TRUCK" "FACTORY" "PORT" a
                 let arriveEvent = createEventWithCargo "ARRIVE" (tt2+1) transportId "TRUCK" "PORT" "" a
+                let unloadEvent = createEventWithCargo "UNLOAD" (tt2+1) transportId "TRUCK" "PORT" "" a
                 let returnDepartEvent = createEventWithoutCargo "DEPART" (tt2+1) transportId "TRUCK" "PORT" "FACTORY"
                 let returnArriveEvent = createEventWithoutCargo "ARRIVE" (tt2+2) transportId "TRUCK" "FACTORY" ""
-                transport (newGlobalState tt1 (tt2+2) ts1 fs ((a, tt2+1)::pas) aas bbs (returnArriveEvent::returnDepartEvent::arriveEvent::departEvent::events))
+                transport (newGlobalState tt1 (tt2+2) ts1 fs ((a, tt2+1)::pas) aas bbs (returnArriveEvent::returnDepartEvent::unloadEvent::arriveEvent::departEvent::loadEvent::events))
         | GLOBALSTATE(tt1, tt2, ts1, (({ destination = B } as b)::fs, pas, aas, bbs), events) -> 
             if tt1 <= tt2 then
                 let transportId = System.Random().Next()
+                let loadEvent = createEventWithCargo "LOAD" tt1 transportId "TRUCK" "FACTORY" "B" b
                 let departEvent = createEventWithCargo "DEPART" tt1 transportId "TRUCK" "FACTORY" "B" b
                 let arriveEvent = createEventWithCargo "ARRIVE" (tt1+5) transportId "TRUCK" "B" "" b
+                let unloadEvent = createEventWithCargo "UNLOAD" (tt1+5) transportId "TRUCK" "B" "" b
                 let returnDepartEvent = createEventWithoutCargo "DEPART" (tt1+5) transportId "TRUCK" "B" "FACTORY"
                 let returnArriveEvent = createEventWithoutCargo "ARRIVE" (tt1+10) transportId "TRUCK" "FACTORY" ""
-                transport (newGlobalState (tt1+10) tt2 ts1 fs pas aas ((b, tt1+5)::bbs) (returnArriveEvent::returnDepartEvent::arriveEvent::departEvent::events))
+                transport (newGlobalState (tt1+10) tt2 ts1 fs pas aas ((b, tt1+5)::bbs) (returnArriveEvent::returnDepartEvent::unloadEvent::arriveEvent::departEvent::loadEvent::events))
             else
                 let transportId = System.Random().Next()
+                let loadEvent = createEventWithCargo "LOAD" tt2 transportId "TRUCK" "FACTORY" "B" b
                 let departEvent = createEventWithCargo "DEPART" tt2 transportId "TRUCK" "FACTORY" "B" b
                 let arriveEvent = createEventWithCargo "ARRIVE" (tt2+5) transportId "TRUCK" "B" "" b
+                let unloadEvent = createEventWithCargo "UNLOAD" (tt2+5) transportId "TRUCK" "B" "" b
                 let returnDepartEvent = createEventWithoutCargo "DEPART" (tt2+5) transportId "TRUCK" "B" "FACTORY"
                 let returnArriveEvent = createEventWithoutCargo "ARRIVE" (tt2+10) transportId "TRUCK" "FACTORY" ""
-                transport (newGlobalState tt1 (tt2+10) ts1 fs pas aas ((b, tt2+5)::bbs) (returnArriveEvent::returnDepartEvent::arriveEvent::departEvent::events))
+                transport (newGlobalState tt1 (tt2+10) ts1 fs pas aas ((b, tt2+5)::bbs) (returnArriveEvent::returnDepartEvent::unloadEvent::arriveEvent::departEvent::loadEvent::events))
         | GLOBALSTATE(tt1, tt2, ts1, ([], [], aas, bbs), events) ->
                 newGlobalState tt1 tt2 ts1 [] [] aas bbs events
 
@@ -129,6 +139,14 @@ let buildCargo id l =
 let buildAllCargo ls =
     List.mapi buildCargo ls
 
+let getOrder eventType =
+    match eventType with
+        | "ARRIVE" -> 1
+        | "UNLOAD" -> 2
+        | "LOAD" -> 3
+        | "DEPART" -> 4
+        | _ -> 9
+
 let transportAll sls ls =
     match ls with
         | [] -> 0
@@ -136,7 +154,7 @@ let transportAll sls ls =
             let cargo = buildAllCargo ls
             let initialState = newGlobalState 0 0 0 cargo [] [] [] []
             let finishedState = transport initialState
-            let events = List.sortBy (fun event -> 10 * event.time + (if event.event = "DEPART" then 1 else 0)) finishedState.events
+            let events = List.sortBy (fun event -> 10 * event.time + getOrder event.event) finishedState.events
             logEvents (sls + ".txt") events
             (finishedState.cargoState.aDeliveries @ finishedState.cargoState.bDeliveries) |> List.map snd |> List.reduce max
 
