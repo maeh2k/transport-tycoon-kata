@@ -27,17 +27,7 @@ let createEventWithCargo event time transportId kind location destination cargo 
     kind = kind;
     location = location;
     destination = destination;
-    cargo = [cargo]
-}
-
-let createEventWithoutCargo event time transportId kind location destination = {
-    event = event;
-    time = time;
-    transportId = transportId;
-    kind = kind;
-    location = location;
-    destination = destination;
-    cargo = []
+    cargo = cargo
 }
 
 type CargoState = {
@@ -67,61 +57,73 @@ let newGlobalState truck1ReturnToFactoryTime truck2ReturnToFactoryTime shipRetur
 
 let rec transport globalState: GlobalState = 
     match globalState with
-        | GLOBALSTATE(tt1, tt2, ts1, (fs, (a,ta)::pas, aas, bbs), events) -> 
-            let transportId = System.Random().Next()
-            let loadEvent = createEventWithCargo "LOAD" (max ts1 ta) transportId "SHIP" "PORT" "A" a
-            let departEvent = createEventWithCargo "DEPART" (1 + max ts1 ta) transportId "SHIP" "PORT" "A" a
-            let arriveEvent = createEventWithCargo "ARRIVE" (1+6+max ts1 ta) transportId "SHIP" "A" "" a
-            let unloadEvent = createEventWithCargo "UNLOAD" (1+6+max ts1 ta) transportId "SHIP" "A" "" a
-            let returnDepartEvent = createEventWithoutCargo "DEPART" (1+6+1+max ts1 ta) transportId "SHIP" "A" "PORT"
-            let returnArriveEvent = createEventWithoutCargo "ARRIVE" (1+6+1+6+max ts1 ta) transportId "SHIP" "PORT" ""
-            transport (newGlobalState tt1 tt2 (1+6+1+6+max ts1 ta) fs pas ((a, 1+6+max ts1 ta)::aas) bbs (returnArriveEvent::returnDepartEvent::unloadEvent::arriveEvent::departEvent::loadEvent::events))
         | GLOBALSTATE(tt1, tt2, ts1, (({ destination = A } as a)::fs, pas, aas, bbs), events) -> 
             if tt1 <= tt2 then
                 let transportId = System.Random().Next()
-                let loadEvent = createEventWithCargo "LOAD" tt1 transportId "TRUCK" "FACTORY" "PORT" a
-                let departEvent = createEventWithCargo "DEPART" tt1 transportId "TRUCK" "FACTORY" "PORT" a
-                let arriveEvent = createEventWithCargo "ARRIVE" (tt1+1) transportId "TRUCK" "PORT" "" a
-                let unloadEvent = createEventWithCargo "UNLOAD" (tt1+1) transportId "TRUCK" "PORT" "" a
-                let returnDepartEvent = createEventWithoutCargo "DEPART" (tt1+1) transportId "TRUCK" "PORT" "FACTORY"
-                let returnArriveEvent = createEventWithoutCargo "ARRIVE" (tt1+2) transportId "TRUCK" "FACTORY" ""
+                let loadEvent = createEventWithCargo "LOAD" tt1 transportId "TRUCK" "FACTORY" "PORT" [a]
+                let departEvent = createEventWithCargo "DEPART" tt1 transportId "TRUCK" "FACTORY" "PORT" [a]
+                let arriveEvent = createEventWithCargo "ARRIVE" (tt1+1) transportId "TRUCK" "PORT" "" [a]
+                let unloadEvent = createEventWithCargo "UNLOAD" (tt1+1) transportId "TRUCK" "PORT" "" [a]
+                let returnDepartEvent = createEventWithCargo "DEPART" (tt1+1) transportId "TRUCK" "PORT" "FACTORY" []
+                let returnArriveEvent = createEventWithCargo "ARRIVE" (tt1+2) transportId "TRUCK" "FACTORY" "" []
                 transport (newGlobalState (tt1+2) tt2 ts1 fs ((a, tt1+1)::pas) aas bbs (returnArriveEvent::returnDepartEvent::unloadEvent::arriveEvent::departEvent::loadEvent::events))
             else
                 let transportId = System.Random().Next()
-                let loadEvent = createEventWithCargo "LOAD" tt2 transportId "TRUCK" "FACTORY" "PORT" a
-                let departEvent = createEventWithCargo "DEPART" tt2 transportId "TRUCK" "FACTORY" "PORT" a
-                let arriveEvent = createEventWithCargo "ARRIVE" (tt2+1) transportId "TRUCK" "PORT" "" a
-                let unloadEvent = createEventWithCargo "UNLOAD" (tt2+1) transportId "TRUCK" "PORT" "" a
-                let returnDepartEvent = createEventWithoutCargo "DEPART" (tt2+1) transportId "TRUCK" "PORT" "FACTORY"
-                let returnArriveEvent = createEventWithoutCargo "ARRIVE" (tt2+2) transportId "TRUCK" "FACTORY" ""
+                let loadEvent = createEventWithCargo "LOAD" tt2 transportId "TRUCK" "FACTORY" "PORT" [a]
+                let departEvent = createEventWithCargo "DEPART" tt2 transportId "TRUCK" "FACTORY" "PORT" [a]
+                let arriveEvent = createEventWithCargo "ARRIVE" (tt2+1) transportId "TRUCK" "PORT" "" [a]
+                let unloadEvent = createEventWithCargo "UNLOAD" (tt2+1) transportId "TRUCK" "PORT" "" [a]
+                let returnDepartEvent = createEventWithCargo "DEPART" (tt2+1) transportId "TRUCK" "PORT" "FACTORY" []
+                let returnArriveEvent = createEventWithCargo "ARRIVE" (tt2+2) transportId "TRUCK" "FACTORY" "" []
                 transport (newGlobalState tt1 (tt2+2) ts1 fs ((a, tt2+1)::pas) aas bbs (returnArriveEvent::returnDepartEvent::unloadEvent::arriveEvent::departEvent::loadEvent::events))
         | GLOBALSTATE(tt1, tt2, ts1, (({ destination = B } as b)::fs, pas, aas, bbs), events) -> 
             if tt1 <= tt2 then
                 let transportId = System.Random().Next()
-                let loadEvent = createEventWithCargo "LOAD" tt1 transportId "TRUCK" "FACTORY" "B" b
-                let departEvent = createEventWithCargo "DEPART" tt1 transportId "TRUCK" "FACTORY" "B" b
-                let arriveEvent = createEventWithCargo "ARRIVE" (tt1+5) transportId "TRUCK" "B" "" b
-                let unloadEvent = createEventWithCargo "UNLOAD" (tt1+5) transportId "TRUCK" "B" "" b
-                let returnDepartEvent = createEventWithoutCargo "DEPART" (tt1+5) transportId "TRUCK" "B" "FACTORY"
-                let returnArriveEvent = createEventWithoutCargo "ARRIVE" (tt1+10) transportId "TRUCK" "FACTORY" ""
+                let loadEvent = createEventWithCargo "LOAD" tt1 transportId "TRUCK" "FACTORY" "B" [b]
+                let departEvent = createEventWithCargo "DEPART" tt1 transportId "TRUCK" "FACTORY" "B" [b]
+                let arriveEvent = createEventWithCargo "ARRIVE" (tt1+5) transportId "TRUCK" "B" "" [b]
+                let unloadEvent = createEventWithCargo "UNLOAD" (tt1+5) transportId "TRUCK" "B" "" [b]
+                let returnDepartEvent = createEventWithCargo "DEPART" (tt1+5) transportId "TRUCK" "B" "FACTORY" []
+                let returnArriveEvent = createEventWithCargo "ARRIVE" (tt1+10) transportId "TRUCK" "FACTORY" "" []
                 transport (newGlobalState (tt1+10) tt2 ts1 fs pas aas ((b, tt1+5)::bbs) (returnArriveEvent::returnDepartEvent::unloadEvent::arriveEvent::departEvent::loadEvent::events))
             else
                 let transportId = System.Random().Next()
-                let loadEvent = createEventWithCargo "LOAD" tt2 transportId "TRUCK" "FACTORY" "B" b
-                let departEvent = createEventWithCargo "DEPART" tt2 transportId "TRUCK" "FACTORY" "B" b
-                let arriveEvent = createEventWithCargo "ARRIVE" (tt2+5) transportId "TRUCK" "B" "" b
-                let unloadEvent = createEventWithCargo "UNLOAD" (tt2+5) transportId "TRUCK" "B" "" b
-                let returnDepartEvent = createEventWithoutCargo "DEPART" (tt2+5) transportId "TRUCK" "B" "FACTORY"
-                let returnArriveEvent = createEventWithoutCargo "ARRIVE" (tt2+10) transportId "TRUCK" "FACTORY" ""
+                let loadEvent = createEventWithCargo "LOAD" tt2 transportId "TRUCK" "FACTORY" "B" [b]
+                let departEvent = createEventWithCargo "DEPART" tt2 transportId "TRUCK" "FACTORY" "B" [b]
+                let arriveEvent = createEventWithCargo "ARRIVE" (tt2+5) transportId "TRUCK" "B" "" [b]
+                let unloadEvent = createEventWithCargo "UNLOAD" (tt2+5) transportId "TRUCK" "B" "" [b]
+                let returnDepartEvent = createEventWithCargo "DEPART" (tt2+5) transportId "TRUCK" "B" "FACTORY" []
+                let returnArriveEvent = createEventWithCargo "ARRIVE" (tt2+10) transportId "TRUCK" "FACTORY" "" []
                 transport (newGlobalState tt1 (tt2+10) ts1 fs pas aas ((b, tt2+5)::bbs) (returnArriveEvent::returnDepartEvent::unloadEvent::arriveEvent::departEvent::loadEvent::events))
+        | GLOBALSTATE(tt1, tt2, ts1, (fs, pas, aas, bbs), events) when not (List.isEmpty pas) -> 
+            let transportId = System.Random().Next()
+            let earliestDepartureTime = max ts1 (List.minBy (snd) pas |> snd)
+            let sortedCargo = List.sortBy (snd) pas
+            let shippableCargo = List.ofSeq (Seq.takeWhile (fun (_,t) -> t <= earliestDepartureTime) sortedCargo)
+            let cargoToShip = List.ofSeq (Seq.take (min 4 (Seq.length shippableCargo)) shippableCargo)
+            let remainingCargo = List.ofSeq (Seq.skip (Seq.length cargoToShip) sortedCargo)
+            let unloadedTime = 1+6+1+earliestDepartureTime
+            let cargoDeliveries = List.map (fun (c,_) -> (c, unloadedTime)) cargoToShip
+
+            let loadEvent = createEventWithCargo "LOAD" earliestDepartureTime transportId "SHIP" "PORT" "A" (List.map fst cargoDeliveries)
+            let departEvent = createEventWithCargo "DEPART" (1 + earliestDepartureTime) transportId "SHIP" "PORT" "A" (List.map fst cargoDeliveries)
+            let arriveEvent = createEventWithCargo "ARRIVE" (1+6+earliestDepartureTime) transportId "SHIP" "A" "" (List.map fst cargoDeliveries)
+            let unloadEvent = createEventWithCargo "UNLOAD" (1+6+earliestDepartureTime) transportId "SHIP" "A" "" (List.map fst cargoDeliveries)
+            let returnDepartEvent = createEventWithCargo "DEPART" (unloadedTime) transportId "SHIP" "A" "PORT" []
+            let returnArriveEvent = createEventWithCargo "ARRIVE" (1+6+1+6+earliestDepartureTime) transportId "SHIP" "PORT" "" []
+            transport (newGlobalState tt1 tt2 (1+6+1+6+earliestDepartureTime) fs remainingCargo (cargoDeliveries @ aas) bbs (returnArriveEvent::returnDepartEvent::unloadEvent::arriveEvent::departEvent::loadEvent::events))
         | GLOBALSTATE(tt1, tt2, ts1, ([], [], aas, bbs), events) ->
-                newGlobalState tt1 tt2 ts1 [] [] aas bbs events
+            newGlobalState tt1 tt2 ts1 [] [] aas bbs events
 
 let printEvent file event =
-    if event.cargo.IsEmpty
-        then fprintfn file "{\"event\": \"%s\", \"time\": %i, \"transport_id\": %i, \"kind\": \"%s\", \"location\": \"%s\", \"destination\": \"%s\", \"cargo\": []}" event.event event.time event.transportId event.kind event.location event.destination
-    else 
-        fprintfn file "{\"event\": \"%s\", \"time\": %i, \"transport_id\": %i, \"kind\": \"%s\", \"location\": \"%s\", \"destination\": \"%s\", \"cargo\": [{\"cargo_id\": %i, \"destination\": \"%s\", \"origin\": \"%s\"}]}" event.event event.time event.transportId event.kind event.location event.destination (event.cargo.Item(0).cargoId) (event.cargo.Item(0).destination.ToString()) (event.cargo.Item(0).origin.ToString())
+    let cargoList = 
+        if event.cargo.IsEmpty 
+            then ""
+        else
+            let cargoStrings = List.map (fun c -> sprintf "{\"cargo_id\": %i, \"destination\": \"%s\", \"origin\": \"%s\"}" c.cargoId (c.destination.ToString()) (c.origin.ToString())) event.cargo
+            String.concat "," cargoStrings
+
+    fprintfn file "{\"event\": \"%s\", \"time\": %i, \"transport_id\": %i, \"kind\": \"%s\", \"location\": \"%s\", \"destination\": \"%s\", \"cargo\": [%s]}" event.event event.time event.transportId event.kind event.location event.destination cargoList
 
 let logEvents filename events = 
     let filePath = __SOURCE_DIRECTORY__ + "\\logs\\" + filename
