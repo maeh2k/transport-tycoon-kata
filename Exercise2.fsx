@@ -70,12 +70,12 @@ let rec transport globalState: GlobalState =
         | GLOBALSTATE(tt1, tt2, ts1, (fs, (a,ta)::pas, aas, bbs), events) -> 
             let transportId = System.Random().Next()
             let loadEvent = createEventWithCargo "LOAD" (max ts1 ta) transportId "SHIP" "PORT" "A" a
-            let departEvent = createEventWithCargo "DEPART" (max ts1 ta) transportId "SHIP" "PORT" "A" a
-            let arriveEvent = createEventWithCargo "ARRIVE" (4+max ts1 ta) transportId "SHIP" "A" "" a
-            let unloadEvent = createEventWithCargo "UNLOAD" (4+max ts1 ta) transportId "SHIP" "A" "" a
-            let returnDepartEvent = createEventWithoutCargo "DEPART" (4+max ts1 ta) transportId "SHIP" "A" "PORT"
-            let returnArriveEvent = createEventWithoutCargo "ARRIVE" (8+max ts1 ta) transportId "SHIP" "PORT" ""
-            transport (newGlobalState tt1 tt2 (8+max ts1 ta) fs pas ((a, 4+max ts1 ta)::aas) bbs (returnArriveEvent::returnDepartEvent::unloadEvent::arriveEvent::departEvent::loadEvent::events))
+            let departEvent = createEventWithCargo "DEPART" (1 + max ts1 ta) transportId "SHIP" "PORT" "A" a
+            let arriveEvent = createEventWithCargo "ARRIVE" (1+6+max ts1 ta) transportId "SHIP" "A" "" a
+            let unloadEvent = createEventWithCargo "UNLOAD" (1+6+max ts1 ta) transportId "SHIP" "A" "" a
+            let returnDepartEvent = createEventWithoutCargo "DEPART" (1+6+1+max ts1 ta) transportId "SHIP" "A" "PORT"
+            let returnArriveEvent = createEventWithoutCargo "ARRIVE" (1+6+1+6+max ts1 ta) transportId "SHIP" "PORT" ""
+            transport (newGlobalState tt1 tt2 (1+6+1+6+max ts1 ta) fs pas ((a, 1+6+max ts1 ta)::aas) bbs (returnArriveEvent::returnDepartEvent::unloadEvent::arriveEvent::departEvent::loadEvent::events))
         | GLOBALSTATE(tt1, tt2, ts1, (({ destination = A } as a)::fs, pas, aas, bbs), events) -> 
             if tt1 <= tt2 then
                 let transportId = System.Random().Next()
